@@ -1,7 +1,6 @@
 
 end::reload
-eat = 1
-Rythm = 0
+
 f1::
 {  
     CoordMode Pixel, Window
@@ -10,6 +9,8 @@ f1::
 	Sleep 6000
 	Sendinput {w up}{s up}
     PixelGetColor, color1, 245, 133,
+    eat = 1
+	Rythm = 0
     Loop,
     {
         PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
