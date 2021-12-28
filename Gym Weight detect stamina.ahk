@@ -52,4 +52,3 @@ Sleep 6000
 PixelGetColor , color1, 150, 134,
 SendInput , {w up}{s up}
 Return
-end::reload
