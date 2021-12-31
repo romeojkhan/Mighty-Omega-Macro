@@ -9,6 +9,7 @@ f1::
     Sendinput {w up}{s up}
     PixelGetColor, color1, 245, 133,
     eat = 1
+    temp = 0
     Rythm = 0
     Loop,
     {
