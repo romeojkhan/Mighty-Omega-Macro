@@ -11,7 +11,7 @@ SendInput , {w up}{s up}
 Sleep 100
 Loop,
     {
-        PixelSearch , x, y, 40, 133, 45, 135, color1, 3, Fast
+        PixelSearch , x, y, 50, 133, 55, 135, color1, 3, Fast
         If ErrorLevel = 0
         {
             Sleep 12000
