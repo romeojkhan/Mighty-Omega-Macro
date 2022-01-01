@@ -1,4 +1,4 @@
-﻿end::reload
+end::reload
 removetooltip:
 ToolTip
 return
@@ -170,11 +170,11 @@ Loop,
                     if eats1 = 2
                         {
                             temps1++
-                            Send 3
+                            Send 4
                             Sleep 50
                             Send {Click}
                             Sleep 5000
-                            Send 3
+                            Send 4
                             Sleep 200
                             if temps1 = 5
                             {
@@ -185,11 +185,11 @@ Loop,
                     if eats1 = 3
                     {
                         temps1++
-                        Send 3
+                        Send 5
                         Sleep 50
                         Send {Click}
                         Sleep 5000
-                        Send 3
+                        Send 5
                         Sleep 200
                         if temps1 = 5
                         {
@@ -200,11 +200,11 @@ Loop,
                     if eats1 = 4
                         {
                             temps1++
-                            Send 3
+                            Send 6
                             Sleep 50
                             Send {Click}
                             Sleep 5000
-                            Send 3
+                            Send 6
                             Sleep 200
                             if temps1 = 5
                             {
@@ -215,11 +215,11 @@ Loop,
                     if eats1 = 5
                     {
                         temps1++
-                        Send 3
+                        Send 7
                         Sleep 50
                         Send {Click}
                         Sleep 5000
-                        Send 3
+                        Send 7
                         Sleep 200
                         if temps1 = 5
                         {
@@ -230,11 +230,11 @@ Loop,
                     if eats1 = 6
                     {
                         temps1++
-                        Send 3
+                        Send 8
                         Sleep 50
                         Send {Click}
                         Sleep 5000
-                        Send 3
+                        Send 8
                         Sleep 200
                         if temps1 = 5
                         {
@@ -245,16 +245,30 @@ Loop,
                     if eats1 = 7
                     {
                         temps1++
-                        Send 3
+                        Send 9
                         Sleep 50
                         Send {Click}
                         Sleep 5000
-                        Send 3
+                        Send 9
                         Sleep 200
                         if temps1 = 5
                         {
                             temps1 = 0
                             eats1 = 8
+                        }
+                    if eats2 = 8
+                        {
+                            temps2++
+                            Send 9
+                            Sleep 50
+                            Send {Click}
+                            Sleep 5000
+                            Send 9
+                            Sleep 200
+                            if temps2 = 5
+                            {
+                                 Send !{F4}
+                            }
                         }
                     }
                 }
@@ -285,11 +299,11 @@ Loop,
                         if eats2 = 2
                             {
                                 temps2++
-                                Send 3
+                                Send 4
                                 Sleep 50
                                 Send {Click}
                                 Sleep 5000
-                                Send 3
+                                Send 4
                                 Sleep 200
                                 if temps2 = 5
                                 {
@@ -300,11 +314,11 @@ Loop,
                         if eats2 = 3
                         {
                             temps2++
-                            Send 3
+                            Send 5
                             Sleep 50
                             Send {Click}
                             Sleep 5000
-                            Send 3
+                            Send 5
                             Sleep 200
                             if temps2 = 5
                             {
@@ -315,11 +329,11 @@ Loop,
                         if eats2 = 4
                             {
                                 temps2++
-                                Send 3
+                                Send 6
                                 Sleep 50
                                 Send {Click}
                                 Sleep 5000
-                                Send 3
+                                Send 6
                                 Sleep 200
                                 if temps2 = 5
                                 {
@@ -330,11 +344,11 @@ Loop,
                         if eats2 = 5
                         {
                             temps2++
-                            Send 3
+                            Send 7
                             Sleep 50
                             Send {Click}
                             Sleep 5000
-                            Send 3
+                            Send 7
                             Sleep 200
                             if temps2 = 5
                             {
@@ -345,11 +359,11 @@ Loop,
                         if eats2 = 6
                         {
                             temps2++
-                            Send 3
+                            Send 8
                             Sleep 50
                             Send {Click}
                             Sleep 5000
-                            Send 3
+                            Send 8
                             Sleep 200
                             if temps2 = 5
                             {
@@ -360,16 +374,30 @@ Loop,
                         if eats2 = 7
                         {
                             temps2++
-                            Send 3
+                            Send 9
                             Sleep 50
                             Send {Click}
                             Sleep 5000
-                            Send 3
+                            Send 9
                             Sleep 200
                             if temps2 = 5
                             {
                                 temps2 = 0
                                 eats2 = 8
+                            }
+                        }
+                        if eats2 = 8
+                        {
+                            temps2++
+                            Send 9
+                            Sleep 50
+                            Send {Click}
+                            Sleep 5000
+                            Send 9
+                            Sleep 200
+                            if temps2 = 5
+                            {
+                                 Send !{F4}
                             }
                         }
                     }
