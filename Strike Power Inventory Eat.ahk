@@ -1,6 +1,11 @@
 end::reload
+
+#maxThreadsPerHotkey, 2
 F1::
+macro_on := !macro_on
+   if (macro_on)
 {  
+    
     CoordMode Pixel, Window
     CoordMode Mouse, Window
     Sendinput, {w down}{w up}{w down}{s down}
@@ -92,5 +97,8 @@ F1::
             Sleep 100
         }
     }
-}
+}else
+    {
+        ExitApp
+    }
 Return
