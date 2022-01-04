@@ -1,7 +1,9 @@
+#maxThreadsPerHotkey, 2
 end::reload
-return
 f1::
-{  
+macro_on := !macro_on
+if (macro_on)
+{
     CoordMode Pixel, Window
     CoordMode Mouse, Window
     Sendinput, {w down}{w up}{w down}{s down}
@@ -69,7 +71,7 @@ f1::
                 Send 3
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 3
@@ -86,7 +88,7 @@ f1::
                 Send 4
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 4
@@ -103,7 +105,7 @@ f1::
                 Send 5
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 5
@@ -120,7 +122,7 @@ f1::
                 Send 6
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 6
@@ -137,7 +139,7 @@ f1::
                 Send 7
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 7
@@ -154,7 +156,7 @@ f1::
                 Send 8
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 8
@@ -171,7 +173,7 @@ f1::
                 Send 9
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 9
@@ -188,7 +190,7 @@ f1::
                 Send 0
                 Sleep 200
                 Send 1
-                if temp = 5
+                if temp = 6
                 {
                     temp = 0
                     eat = 10
@@ -214,6 +216,10 @@ f1::
             Sleep 100
         }
     }
+}
+else
+{
+    ExitApp
 }
 Return
 
