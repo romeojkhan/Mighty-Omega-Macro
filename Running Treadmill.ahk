@@ -1,7 +1,7 @@
 
 ; This script was originaly made by vivace#7777
 
-
+#maxThreadsPerHotkey, 2
 
    eat = 1
    temp = 0
@@ -14,6 +14,9 @@
    Return
    
    F2::
+   macro_on := !macro_on
+   if (macro_on)
+   {
    Loop ,
    {
       CoordMode , Click, Window
@@ -290,6 +293,10 @@
          }
       }
       Sleep 19000
-   }
+   }}
+   else
+      {
+         ExitApp
+      }
    Return
    end::Reload
