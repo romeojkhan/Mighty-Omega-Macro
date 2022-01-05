@@ -214,8 +214,7 @@
             {
                temp = 0
                eat = 7
-            }
-         }
+            }}
          if eat = 6
          {
             temp++
@@ -237,8 +236,7 @@
             {
                temp = 0
                eat = 7
-            }
-         }
+            }}
          if eat = 7
          {
             temp++
@@ -260,8 +258,7 @@
             {
                temp = 0
                eat = 8
-            }
-         }
+            }}
          if eat = 8
          {
             temp++
@@ -291,8 +288,14 @@
             Reload
          }
       }
-      Sleep 19000
-   }}
+      Loop,
+      {
+         Sleep 100
+         PixelSearch , x, y, 249, 129, 250, 130, 0xD8501B, , Fast
+         If ErrorLevel = 0
+         {
+            Break
+         }}}}
    else
       {
          ExitApp
