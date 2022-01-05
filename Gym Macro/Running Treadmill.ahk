@@ -292,6 +292,7 @@
             Reload
          }
       }
+      StartTime4 := A_TickCount
       Loop,
       {
          Sleep 100
@@ -299,9 +300,9 @@
          If ErrorLevel = 0
          {
             Break
-         }
-      }
-   }}
+         } 
+      } Until A_TickCount - StartTime4 > 17000
+      }}
    else
       {
          ExitApp
