@@ -29,9 +29,20 @@ macro_on := !macro_on
         Else
         {
             Rythm = 0
+            Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
-            Sleep 4000
-            Sendinput {w up}{s up}
+            Sleep 100
+            Loop,
+            {
+                PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
+                If ErrorLevel = 0
+                {
+
+                    Sendinput, {w up}{s up}{w up}{s up}
+                    Sleep 100
+                    Break
+                }
+            }
         }
         PixelSearch, x, y, 40, 132, 65, 134, color1,, Fast 
         if ErrorLevel = 0
