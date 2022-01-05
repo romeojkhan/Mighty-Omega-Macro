@@ -29,18 +29,27 @@ if (macro_on)
         Else
         {
             Rythm = 0
+            Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
-            Sleep 4000
-            Sendinput {w up}{s up}
-        }
+            Sleep 100
+            Loop,
+            {
+                PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
+                If ErrorLevel = 0
+                {
 
+                    Sendinput, {w up}{s up}{w up}{s up}
+                    Sleep 100
+                    Break
+                }
+            }
+        }
         PixelSearch, x, y, 40, 132, 65, 134, color1,, Fast  ; if too low stam
         if ErrorLevel = 0
         {
             Sleep 10000
         }
-        
-        PixelSearch, x, y, 70, 144, 80, 145, 0x444444,, Fast ; food under 50%
+        PixelSearch, x, y, 70, 144, 80, 145, 0x444444, 3, Fast ; food under 50%
         If ErrorLevel = 0
         {
             if eat = 1
