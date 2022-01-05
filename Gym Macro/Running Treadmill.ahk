@@ -292,7 +292,15 @@
             Reload
          }
       }
-      Sleep 19000
+      Loop,
+      {
+         Sleep 100
+         PixelSearch , x, y, 249, 129, 250, 130, 0xD8501B, , Fast
+         If ErrorLevel = 0
+         {
+            Break
+         }
+      }
    }}
    else
       {
