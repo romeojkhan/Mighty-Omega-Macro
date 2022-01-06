@@ -37,9 +37,10 @@ macro_on := !macro_on
                 PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
                 If ErrorLevel = 0
                 {
-
+                    Sleep 2000
                     Sendinput, {w up}{s up}{w up}{s up}
                     Sleep 100
+                    Send {Click, 50}{Click, Right}
                     Break
                 }
             }
