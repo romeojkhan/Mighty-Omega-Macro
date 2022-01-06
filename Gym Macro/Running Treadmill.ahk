@@ -7,6 +7,7 @@
    temp = 0
    F1::
    CoordMode , Pixel, Window
+   PixelGetColor , color2, 250, 134,
    SendInput , {w down}{w up}{w down}{s down}
    Sleep 6000
    PixelGetColor , color1, 150, 134,
@@ -296,7 +297,7 @@
       Loop,
       {
          Sleep 100
-         PixelSearch , x, y, 249, 129, 250, 130, 0xD8501B, , Fast
+         PixelSearch , x, y, 249, 133, 250, 135, color2, , Fast
          If ErrorLevel = 0
          {
             Break
