@@ -1,4 +1,4 @@
-﻿end::reload
+end::reload
 
 f1::
 loop,
@@ -22,17 +22,17 @@ loop,
     StartTime := A_TickCount
     Loop ,
     {
+        PixelSearch , x, y, 40, 133, 80, 135, color1, 30, Fast
+            If ErrorLevel = 0
+            {
+                Sleep 8000
+            }
         ImageSearch, x , y , 250 , 220 , 560 , 440, *30 %A_ScriptDir%\bin\yellow.png ;0xB1EA40
         if (errorlevel = 0)
         {
             MouseClick, Left,  x+5, y+5
             Sleep 100
             Click, 400, 500
-        }
-        PixelSearch , x, y, 40, 133, 45, 135, color1, 3, Fast
-        If ErrorLevel = 0
-        {
-            Sleep 6000
         }
     } Until A_TickCount - StartTime > 62000
     StartTime2 := A_TickCount
@@ -41,14 +41,24 @@ loop,
         Click, 400, 390
         Sleep 16
     } Until A_TickCount - StartTime2 > 5000
-    Sleep 7000
+    StartTime4 := A_TickCount
+      Loop,
+      {
+         Sleep 100
+         PixelSearch , x, y, 249, 133, 250, 135, color2, , Fast
+         If ErrorLevel = 0
+         {
+            Break
+         } 
+      } Until A_TickCount - StartTime4 > 7000
 }
 return
 
 F2::
 CoordMode , Pixel, Window
+PixelGetColor , color2, 250, 134,
 SendInput , {w down}{w up}{w down}{s down}
 Sleep 6000
-PixelGetColor , color1, 150, 134,
+PixelGetColor , color1, 230, 134,
 SendInput , {w up}{s up}
 Return
