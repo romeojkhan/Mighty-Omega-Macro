@@ -13,20 +13,22 @@ loop,
     Send {Click}
     Sleep 1000
     Send 1
-    Sleep 1000
-    Loop, 4
+    Sleep 2000
+	Loop, 4
 	{
-		Loop, 4
+		Send {Click}
+		Loop, 3
 		{
 			Sleep 1100
 			Send {Click}
 		}
 		Sleep 1100
 		Send {Click, Right}
-		Sleep 300
+		Sleep 1100
 	}
+	Send {Click}
 	Sleep 1100
-	Send {Click}1{Click 10}
+	Send 1
 	Sleep 1000
 }
 Return
