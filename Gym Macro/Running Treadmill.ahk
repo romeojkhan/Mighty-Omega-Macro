@@ -54,7 +54,7 @@
          {
             Sendinput d
          }
-         PixelSearch , x, y, 40, 133, 50, 135, 0x3A3A3A, 40, Fast
+         PixelSearch , x, y, 40, 133, 70, 135, 0x3A3A3A, 40, Fast
          If ErrorLevel = 0
          {
             StartTime1 := A_TickCount
