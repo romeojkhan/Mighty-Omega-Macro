@@ -8,14 +8,10 @@ macro_on := !macro_on
     
     CoordMode Pixel, Window
     CoordMode Mouse, Window
-    Sendinput, {w down}{w up}{w down}{s down}
-    Sleep 6000
-    Sendinput {w up}{s up}
-    PixelGetColor, color1, 245, 133,
     Loop,
     {
         
-        PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
+        PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast
         if ErrorLevel = 0
         {
             if Rythm = 0
@@ -34,7 +30,7 @@ macro_on := !macro_on
             Sleep 100
             Loop,
             {
-                PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
+                PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast
                 If ErrorLevel = 0
                 {
                     Sleep 2000
@@ -45,17 +41,18 @@ macro_on := !macro_on
                 }
             }
         }
-        PixelSearch, x, y, 40, 132, 65, 134, color1,, Fast 
+        PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast
         if ErrorLevel = 0
         {
             Sleep 10000
         }
-        PixelSearch, x, y, 70, 144, 80, 146, 0x444444,, Fast
+        PixelSearch, x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
             if eat <= 5
             {
                 eat++
+                Sendinput, {w up}{s up}
                 Sleep 100
                 Send 2
                 Sleep 50 
@@ -67,6 +64,7 @@ macro_on := !macro_on
             }
             If eat >= 5
             {
+                Sendinput, {w up}{s up}
                 Sleep 1000
                 Send 1
                 MouseMove, 118, 300, 5
