@@ -5,19 +5,13 @@
 
    eat = 1
    temp = 0
-   F1::
-   CoordMode , Pixel, Window
-   PixelGetColor , color2, 250, 134,
-   SendInput , {w down}{w up}{w down}{s down}
-   Sleep 6000
-   PixelGetColor , color1, 150, 134,
-   SendInput , {w up}{s up}
-   Return
    
-   F2::
+   F1::
    macro_on := !macro_on
    if (macro_on)
    {
+   CoordMode , Pixel, Window
+   PixelGetColor , color2, 250, 134,
    Loop ,
    {
       CoordMode , Click, Window
@@ -60,7 +54,7 @@
          {
             Send d
          }
-         PixelSearch , x, y, 40, 133, 45, 135, color1, 3, Fast
+         PixelSearch , x, y, 40, 133, 50, 135, 0x3A3A3A, 40, Fast
          If ErrorLevel = 0
          {
             StartTime1 := A_TickCount
@@ -68,16 +62,16 @@
             {
                Click , 409, 296
                Sleep 16
-            } Until A_TickCount - StartTime1 > 6000
+            } Until A_TickCount - StartTime1 > 8000
          }
-      }  Until A_TickCount - StartTime > 59500
+      } Until A_TickCount - StartTime > 60000
       StartTime2 := A_TickCount
       Loop ,
       {
          Click , 409, 296
          Sleep 16
       } Until A_TickCount - StartTime2 > 6000
-      PixelSearch , x, y, 70, 144, 80, 146, 0x444444, , Fast
+      PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
       If ErrorLevel = 0
       {
          if eat = 1
@@ -88,7 +82,7 @@
             Sleep 100
             Send 2
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 2
             1 := A_TickCount
@@ -111,7 +105,7 @@
             Sleep 100
             Send 3
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 3
             2 := A_TickCount
@@ -134,7 +128,7 @@
             Sleep 100
             Send 4
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 4
             3 := A_TickCount
@@ -157,7 +151,7 @@
             Sleep 100
             Send 5
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 5
             4 := A_TickCount
@@ -180,7 +174,7 @@
             Sleep 100
             Send 6
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 6
             4 := A_TickCount
@@ -203,7 +197,7 @@
             Sleep 100
             Send 7
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 7
             4 := A_TickCount
@@ -216,8 +210,7 @@
             {
                temp = 0
                eat = 7
-            }
-         }
+            }}
          if eat = 6
          {
             temp++
@@ -226,7 +219,7 @@
             Sleep 100
             Send 8
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 8
             4 := A_TickCount
@@ -239,8 +232,7 @@
             {
                temp = 0
                eat = 7
-            }
-         }
+            }}
          if eat = 7
          {
             temp++
@@ -249,7 +241,7 @@
             Sleep 100
             Send 9
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 9
             4 := A_TickCount
@@ -262,8 +254,7 @@
             {
                temp = 0
                eat = 8
-            }
-         }
+            }}
          if eat = 8
          {
             temp++
@@ -272,7 +263,7 @@
             Sleep 100
             Send 0
             Sleep 50
-            Send {Click}
+            Send {Click 10}
             Sleep 5000
             Send 0
             4 := A_TickCount
