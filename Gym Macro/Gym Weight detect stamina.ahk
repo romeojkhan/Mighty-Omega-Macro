@@ -1,6 +1,11 @@
 end::reload
 
 f1::
+macro_on := !macro_on
+   if (macro_on)
+   {
+CoordMode , Pixel, Window
+PixelGetColor , color2, 250, 134,
 loop,
 {
     CoordMode, Pixel, Window
@@ -22,7 +27,7 @@ loop,
     StartTime := A_TickCount
     Loop ,
     {
-        PixelSearch , x, y, 40, 133, 80, 135, color1, 30, Fast
+        PixelSearch , x, y, 40, 133, 80, 135, 0x3A3A3A, 40, Fast
             If ErrorLevel = 0
             {
                 Sleep 8000
@@ -51,14 +56,9 @@ loop,
             Break
          } 
       } Until A_TickCount - StartTime4 > 7000
+}}
+else
+{
+exitapp
 }
 return
-
-F2::
-CoordMode , Pixel, Window
-PixelGetColor , color2, 250, 134,
-SendInput , {w down}{w up}{w down}{s down}
-Sleep 6000
-PixelGetColor , color1, 230, 134,
-SendInput , {w up}{s up}
-Return
