@@ -37,22 +37,22 @@
          ImageSearch , FoundX, FoundY, 200, 240, 600, 300, *30 %A_ScriptDir%\bin\w.png
          if (errorlevel = 0)
          {
-            Send w
+            Sendinput w
          }
          ImageSearch , FoundX, FoundY, 200, 240, 600, 300, *30 %A_ScriptDir%\bin\a.png
          if (errorlevel = 0)
          {
-            Send a
+            Sendinput a
          }
          ImageSearch , FoundX, FoundY, 200, 240, 600, 300, *30 %A_ScriptDir%\bin\s.png
          if (errorlevel = 0)
          {
-            Send s
+            Sendinput s
          }
          ImageSearch , FoundX, FoundY, 200, 240, 600, 300, *30 %A_ScriptDir%\bin\d.png
          if (errorlevel = 0)
          {
-            Send d
+            Sendinput d
          }
          PixelSearch , x, y, 40, 133, 50, 135, 0x3A3A3A, 40, Fast
          If ErrorLevel = 0
