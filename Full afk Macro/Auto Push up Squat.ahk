@@ -17,25 +17,30 @@ macro_on := !macro_on
 if (macro_on)
 {
     CoordMode , Pixel, Window
-    SendInput , {w down}{w up}{w down}{s down}
-    Sleep 6000
-    PixelGetColor , color1, 150, 134,
-    SendInput , {w up}{s up}
+    PixelGetColor , color1, 230, 134,
     Sleep 100
     Send 1
     Loop,
     {
-        PixelSearch , x, y, 40, 133, 45, 135, color1, 3, Fast
+        PixelSearch , x, y, 40, 133, 45, 135, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
-            Sleep 12000
+            loop,
+            {
+                Sleep 100
+                PixelSearch , x, y, 229, 133, 230, 135, Corlor1,, Fast
+                If ErrorLevel = 0
+                {
+                    Break
+                }
+            }
         }
         else
         {
             Send {Click}
             Sleep %wait%
         }
-        PixelSearch , x, y, 70, 144, 80, 146, 0x444444, , Fast
+        PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
             if eat = 1
