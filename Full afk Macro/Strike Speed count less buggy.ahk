@@ -1,3 +1,8 @@
+InputBox, logs, how many ss you want to do?
+if ErrorLevel = 1
+{
+    ExitApp
+}
 removetooltip:
 ToolTip
 return
@@ -30,6 +35,11 @@ loop,
 	Sleep 1100
 	Send 1
 	Sleep 1000
+	if A_Index = %logs%
+	{
+		Send !{f4}
+        ExitApp
+	} 
 }
 Return
 end::reload
