@@ -6,16 +6,12 @@ if (macro_on)
 {
     CoordMode Pixel, Window
     CoordMode Mouse, Window
-    Sendinput, {w down}{w up}{w down}{s down}
-    Sleep 6000
-    Sendinput {w up}{s up}
-    PixelGetColor, color1, 245, 133,
     eat = 1
     temp = 0
     Rythm = 0
     Loop,
     {
-        PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
+        PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast
         if ErrorLevel = 0
         {
             if Rythm = 0
@@ -34,30 +30,32 @@ if (macro_on)
             Sleep 100
             Loop,
             {
-                PixelSearch, x, y, 184, 132, 186, 134, color1,, Fast 
+                PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
                 If ErrorLevel = 0
                 {
 
                     Sleep 2000
-                    Sendinput, {w up}{s up}{w up}{s up}
+                    Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
                     Sleep 100
                     Send {Click, 50}{Click, Right}
                     Break
                 }
             }
         }
-        PixelSearch, x, y, 40, 132, 65, 134, color1,, Fast  ; if too low stam
+        PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast  ; if too low stam
         if ErrorLevel = 0
         {
+            Sendinput, {w up}{s up}
             Sleep 10000
         }
-        PixelSearch, x, y, 70, 144, 80, 145, 0x444444, 3, Fast ; food under 50%
+        PixelSearch, x, y, 70, 144, 80, 145, 0x3A3A3A, 40, Fast ; food under 50%
         If ErrorLevel = 0
         {
             if eat = 1
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 2
                 Sleep 50
                 Send {Click}
@@ -75,6 +73,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 3
                 Sleep 50
                 Send {Click}
@@ -92,6 +91,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 4
                 Sleep 50
                 Send {Click}
@@ -109,6 +109,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 5
                 Sleep 50
                 Send {Click}
@@ -126,6 +127,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 6
                 Sleep 50
                 Send {Click}
@@ -143,6 +145,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 7
                 Sleep 50
                 Send {Click}
@@ -160,6 +163,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 8
                 Sleep 50
                 Send {Click}
@@ -177,6 +181,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 9
                 Sleep 50
                 Send {Click}
@@ -194,6 +199,7 @@ if (macro_on)
             {
                 temp++
                 Rythm = 0
+                Sendinput, {w up}{s up}
                 Send 0
                 Sleep 50
                 Send {Click}
