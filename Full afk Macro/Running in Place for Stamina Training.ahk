@@ -4,30 +4,38 @@ temp = 0
 end::reload
 
 f1::
+macro_on := !macro_on
+if (macro_on)
+{
 CoordMode , Pixel, Window
-SendInput , {w down}{w up}{w down}{s down}
-Sleep 6000
-PixelGetColor , color1, 150, 134,
-SendInput , {w up}{s up}
+PixelGetColor , color2, 230, 134,
 Loop,
     {
         Sendinput, {w down}{w up}{w down}{s down}
         Sleep 100
         Loop,
         {
-            PixelSearch , x, y, 40, 133, 45, 135, color1, 3, Fast
+            PixelSearch , x, y, 40, 133, 45, 135, 0x3A3A3A, 40, Fast
             If ErrorLevel = 0
             {
                 Sendinput, {w up}{s up}
-                Sleep 16000
-                Break
+                Loop,
+		{	
+			Sleep 100
+			PixelSearch , x, y, 229, 133, 230, 135, color2, 3, Fast
+			If ErrorLevel = 0
+			{
+				Break
+			}
+		}
             }
-            PixelSearch , x, y, 70, 144, 80, 146, 0x444444, , Fast
+            PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
             If ErrorLevel = 0
             {
                 if eat = 1
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 2
                     Sleep 50
                     Send {Click}
@@ -44,6 +52,7 @@ Loop,
                 if eat = 2
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 3
                     Sleep 50
                     Send {Click}
@@ -60,6 +69,7 @@ Loop,
                 if eat = 3
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 4
                     Sleep 50
                     Send {Click}
@@ -76,6 +86,7 @@ Loop,
                 if eat = 4
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 5
                     Sleep 50
                     Send {Click}
@@ -92,6 +103,7 @@ Loop,
                 if eat = 5
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 6
                     Sleep 50
                     Send {Click}
@@ -108,6 +120,7 @@ Loop,
                 if eat = 6
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 7
                     Sleep 50
                     Send {Click}
@@ -124,6 +137,7 @@ Loop,
                 if eat = 7
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 8
                     Sleep 50
                     Send {Click}
@@ -140,6 +154,7 @@ Loop,
                 if eat = 8
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 9
                     Sleep 50
                     Send {Click}
@@ -156,6 +171,7 @@ Loop,
                 if eat = 9
                 {
                     temp++
+                    Sendinput, {w up}{s up}
                     Send 0
                     Sleep 50
                     Send {Click}
@@ -178,5 +194,10 @@ Loop,
         }
         
     }
+}
+else
+{
+    ExitApp
+}
 
 return
