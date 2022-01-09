@@ -36,7 +36,7 @@ if (macro_on)
                 {
                     Break
                 } 
-            } Until A_TickCount - StartTime4 > 7000
+            } Until A_TickCount - StartTime4 > 16000
         }
         PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
