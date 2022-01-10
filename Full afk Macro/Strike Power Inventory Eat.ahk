@@ -93,7 +93,7 @@ macro_on := !macro_on
             Send !{f4}
             Reload
         }
-	PixelSearch, x, y, 186, 565, 187, 566, 0xEBEBEB,, Fast
+	PixelSearch, x, y, 20, 144, 50, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
             Send !{f4}
