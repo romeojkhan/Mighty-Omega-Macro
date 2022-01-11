@@ -26,7 +26,7 @@ if (macro_on)
         {
             Rythm = 0
             Sendinput, {w up}{s up}
-            Sleep 100
+            Sleep 2000
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
             Loop,
