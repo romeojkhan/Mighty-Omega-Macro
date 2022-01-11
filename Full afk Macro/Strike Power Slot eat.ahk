@@ -25,6 +25,7 @@ if (macro_on)
         Else
         {
             Rythm = 0
+            Sendinput, {w up}{s up}
             Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
