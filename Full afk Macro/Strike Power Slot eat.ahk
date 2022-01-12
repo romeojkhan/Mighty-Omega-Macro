@@ -19,7 +19,7 @@ if (macro_on)
             {
                 Rythm++
                 Sleep 100
-                ;Send r
+                Send r
             }
             Send {Click, 50}{Click, Right}
         } 
