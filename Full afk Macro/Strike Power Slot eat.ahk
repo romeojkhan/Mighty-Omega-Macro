@@ -9,6 +9,7 @@ if (macro_on)
     eat = 1
     temp = 0
     Rythm = 0
+    ok = 0
     Loop,
     {
         PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast
@@ -18,7 +19,7 @@ if (macro_on)
             {
                 Rythm++
                 Sleep 100
-                Send r
+                ;Send r
             }
             Send {Click, 50}{Click, Right}
         } 
@@ -26,22 +27,28 @@ if (macro_on)
         {
             Rythm = 0
             Sendinput, {w up}{s up}
-            Sleep 2000
+            Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
+            ok = 0
+            StartTime := A_TickCount
             Loop,
             {
-                PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
-                If ErrorLevel = 0
+                if ok = 0
                 {
+                    PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
+                    If ErrorLevel = 0
+                    {
 
-                    Sleep 2000
-                    Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
-                    Sleep 100
-                    Send {Click, 50}{Click, Right}
-                    Break
+                        Sleep 2000
+                        Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
+                        Sleep 100
+                        Send {Click, 50}{Click, Right}
+                        ok++
+                        Break
+                    }
                 }
-            }
+            } Until A_TickCount - StartTime > 30000
         }
         PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast  ; if too low stam
         if ErrorLevel = 0
