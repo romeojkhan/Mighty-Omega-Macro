@@ -28,18 +28,22 @@ macro_on := !macro_on
             Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
+            StartTime := A_TickCount
             Loop,
             {
-                PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast
-                If ErrorLevel = 0
                 {
-                    Sleep 2000
-                    Sendinput, {w up}{s up}{w up}{s up}
-                    Sleep 100
-                    Send {Click, 50}{Click, Right}
-                    Break
+                    PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
+                    If ErrorLevel = 0
+                    {
+
+                        Sleep 2000
+                        Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
+                        Sleep 100
+                        Send {Click, 50}{Click, Right}
+                        Break
+                    }
                 }
-            }
+            } Until A_TickCount - StartTime > 30000
         }
         PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast
         if ErrorLevel = 0
