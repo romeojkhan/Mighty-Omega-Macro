@@ -11,7 +11,7 @@ CenterWindow(WinTitle)
 	WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2), 400, 400
 }
 
-end::reload
+
 f1::
 macro_on := !macro_on
 if (macro_on)
