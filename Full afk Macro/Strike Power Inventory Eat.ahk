@@ -1,10 +1,10 @@
-end::reload
-#maxThreadsPerHotkey, 2
+
 InputBox, slot, how much food slot you have?
 if ErrorLevel = 1
 {	
 	ExitApp
 }
+
 Loop, 3
 {	
 	CenterWindow("ahk_exe RobloxPlayerBeta.exe")
@@ -17,7 +17,7 @@ CenterWindow(WinTitle)
 }
 
 
-
+end::reload
 #maxThreadsPerHotkey, 2
 F1::
 macro_on := !macro_on
