@@ -1,5 +1,17 @@
 #maxThreadsPerHotkey, 2
 end::reload
+Loop, 3
+{	
+	CenterWindow("ahk_exe RobloxPlayerBeta.exe")
+	Sleep 100
+}
+CenterWindow(WinTitle)
+{	
+	WinGetPos,,, Width, Height, %WinTitle%
+	WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2), 400, 400
+}
+
+end::reload
 f1::
 macro_on := !macro_on
 if (macro_on)
@@ -30,23 +42,17 @@ if (macro_on)
             Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
-            ok = 0
             StartTime := A_TickCount
             Loop,
             {
-                if ok = 0
+                PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
+                If ErrorLevel = 0
                 {
-                    PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
-                    If ErrorLevel = 0
-                    {
-
-                        Sleep 2000
-                        Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
-                        Sleep 100
-                        Send {Click, 50}{Click, Right}
-                        ok++
-                        Break
-                    }
+                    Sleep 2000
+                    Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
+                    Sleep 100
+                    Send {Click, 50}{Click, Right}
+                    Break
                 }
             } Until A_TickCount - StartTime > 30000
         }
