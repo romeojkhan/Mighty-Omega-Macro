@@ -1,5 +1,10 @@
-#maxThreadsPerHotkey, 2
 end::reload
+#maxThreadsPerHotkey, 2
+InputBox, slot, how much food slot you have?
+if ErrorLevel = 1
+{	
+	ExitApp
+}
 Loop, 3
 {	
 	CenterWindow("ahk_exe RobloxPlayerBeta.exe")
@@ -11,19 +16,18 @@ CenterWindow(WinTitle)
 	WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2), 400, 400
 }
 
-end::reload
-f1::
+
+
+#maxThreadsPerHotkey, 2
+F1::
 macro_on := !macro_on
-if (macro_on)
+   if (macro_on)
 {
     CoordMode Pixel, Window
     CoordMode Mouse, Window
-    eat = 1
-    temp = 0
-    Rythm = 0
-    ok = 0
     Loop,
     {
+        
         PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast
         if ErrorLevel = 0
         {
@@ -38,208 +42,91 @@ if (macro_on)
         Else
         {
             Rythm = 0
-            Sendinput, {w up}{s up}
             Sleep 100
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
             StartTime := A_TickCount
             Loop,
             {
-                PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
-                If ErrorLevel = 0
                 {
-                    Sleep 2000
-                    Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
-                    Sleep 100
-                    Send {Click, 50}{Click, Right}
-                    Break
+                    PixelSearch, x, y, 184, 132, 186, 134, 0x3A3A3A, 40, Fast 
+                    If ErrorLevel = 0
+                    {
+
+                        Sleep 2000
+                        Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
+                        Sleep 100
+                        Send {Click, 50}{Click, Right}
+                        Break
+                    }
                 }
             } Until A_TickCount - StartTime > 30000
         }
-        PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast  ; if too low stam
+        PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast
         if ErrorLevel = 0
         {
-            Sendinput, {w up}{s up}
             Sleep 10000
         }
-        PixelSearch, x, y, 70, 144, 80, 145, 0x3A3A3A, 40, Fast ; food under 50%
+        PixelSearch, x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
-            if eat = 1
+            if eat <= 5
             {
-                temp++
-                Rythm = 0
+                eat++
                 Sendinput, {w up}{s up}
+                Sleep 100
                 Send 2
-                Sleep 50
+                Sleep 50 
                 Send {Click}
                 Sleep 5000
-                Send 2
-                Sleep 200
                 Send 1
-                if temp = 5
-                {
-                    temp = 0
-                    eat = 2
-                }
-            }
-            if eat = 2
-            {
-                temp++
+                Sleep 100
                 Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 3
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 3
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 3
-                }
             }
-            if eat = 3
+            If eat >= 5
             {
-                temp++
+                Sendinput, {w up}{s up}
+                Sleep 1000
+                Send 1
+                MouseMove, 118, 300, 5
+                Sleep 1000
+                SendInput, {VKC0}
+                Sleep 500
+                MouseMove, 118, 220, 5
+                Sleep 100
+                Send {Click down}
+                Sleep 100
+                MouseMove, 160, 562, 5
+                Sleep 100
+                Send {Click up}
+                Sleep 100
+                SendInput, {VKC0}
+                MouseMove, 118, 300, 5
+                Send 1
+                Sleep 1000
+                eat = 0
                 Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 4
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 4
-                Sleep 200
-                Send 1
-                if temp = 6
+                slots++
+                if slots = %slot%
                 {
-                    temp = 0
-                    eat = 4
+                    Send !{f4}
+                    ExitApp
                 }
-            }
-            if eat = 4
-            {
-                temp++
-                Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 5
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 5
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 5
-                }
-            }
-            if eat = 5
-            {
-                temp++
-                Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 6
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 6
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 6
-                }
-            }
-            if eat = 6
-            {
-                temp++
-                Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 7
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 7
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 7
-                }
-            }
-            if eat = 7
-            {
-                temp++
-                Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 8
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 8
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 8
-                }
-            }
-            if eat = 8
-            {
-                temp++
-                Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 9
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 9
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 9
-                }
-            }
-            if eat = 9
-            {
-                temp++
-                Rythm = 0
-                Sendinput, {w up}{s up}
-                Send 0
-                Sleep 50
-                Send {Click}
-                Sleep 5000
-                Send 0
-                Sleep 200
-                Send 1
-                if temp = 6
-                {
-                    temp = 0
-                    eat = 10
-                }
-            }
-            If eat = 10
-            {
-                Send !{f4}
-                reload
             }
         }
-        PixelSearch, x, y, 39, 159, 41, 161, 0x9299BC,, Fast ; logs when hungry
+        PixelSearch, x, y, 39, 159, 41, 161, 0x9299BC,, Fast
         If ErrorLevel = 0
         {
             Send !{f4}
             Reload
         }
-        PixelSearch, x, y, 409,151, 411,153, 0x242424,, Fast ;auto flow
+	PixelSearch, x, y, 20, 144, 50, 146, 0x3A3A3A, 40, Fast
+        If ErrorLevel = 0
+        {
+            Send !{f4}
+	        Reload          
+        }
+        PixelSearch, x, y, 409,151, 411,153, 0x242424,, Fast
         If ErrorLevel = 0
         {
             Sleep 100
@@ -247,10 +134,8 @@ if (macro_on)
             Sleep 100
         }
     }
-}
-else
-{
-    ExitApp
-}
+}else
+    {
+        ExitApp
+    }
 Return
-
