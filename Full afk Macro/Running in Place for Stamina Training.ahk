@@ -6,9 +6,10 @@ f1::
 macro_on := !macro_on
 if (macro_on)
 {
+    CoordMode Pixel, Window
+    CoordMode Mouse, Window
     eat = 1
     temp = 0
-    CoordMode , Pixel, Window
     PixelGetColor , color2, 230, 134,
     Loop,
     {
@@ -23,6 +24,7 @@ if (macro_on)
                 StartTime11 := A_TickCount
                 Loop,
                 {	
+                    CoordMode , Pixel, Window
                     PixelSearch , x, y, 229, 133, 231, 135, color2, 3, Fast
                     If ErrorLevel = 0
                     {
