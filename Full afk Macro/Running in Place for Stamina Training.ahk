@@ -1,12 +1,13 @@
 ; test
-eat = 1
-temp = 0
+
 end::reload
 #MaxThreadsPerHotkey, 2
 f1::
 macro_on := !macro_on
 if (macro_on)
 {
+    eat = 1
+    temp = 0
     CoordMode , Pixel, Window
     PixelGetColor , color2, 230, 134,
     Loop,
@@ -19,16 +20,16 @@ if (macro_on)
             If ErrorLevel = 0
             {
                 Sendinput, {w up}{s up}
+                StartTime11 := A_TickCount
                 Loop,
                 {	
-                    Sleep 100
-                    PixelSearch , x, y, 229, 133, 230, 135, color2, 3, Fast
+                    PixelSearch , x, y, 229, 133, 231, 135, color2, 3, Fast
                     If ErrorLevel = 0
                     {
                         Sleep 100
                         Break
                     }
-                }
+                } Until A_TickCount - StartTime11 > 21000
                 Break
             }
         }
