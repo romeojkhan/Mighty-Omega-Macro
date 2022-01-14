@@ -52,7 +52,7 @@ macro_on := !macro_on
                 If ErrorLevel = 0
                 {
                     Sleep 2000
-                    Sendinput, {w up}{s up}{w up}{s up}{w up}{s up}{w up}{s up}
+                    Sendinput, {w up}{s up}
                     Sleep 100
                     Send {Click, 50}{Click, Right}
                     Break
