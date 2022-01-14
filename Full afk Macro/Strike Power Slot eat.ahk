@@ -10,6 +10,9 @@ CenterWindow(WinTitle)
 	WinGetPos,,, Width, Height, %WinTitle%
 	WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2), 400, 400
 }
+rtooltip:
+tooltip
+return
 end::reload
 
 f1::
@@ -64,6 +67,8 @@ if (macro_on)
         PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
+		tooltip, eat
+		settimer, rtooltip, -3000
             if current <= 5
             {
                 Sleep 100
@@ -72,6 +77,8 @@ if (macro_on)
                 Send {Click 10}
                 Sleep 6000
                 Send %slot%
+		Sleep 100
+		Send 1
                 current++
             }
             if slot = 0
