@@ -85,7 +85,7 @@ if (macro_on)
             {
                 if current >= 5
                 {
-                    ToolTip, alt f4
+                    Send !{f4}
                     Exitapp
                 }
             }
@@ -99,7 +99,7 @@ if (macro_on)
                 }
             }
         }
-        PixelSearch , x, y, 20, 144, 40, 146, 0x3A3A3A, 40, Fast ; logs when hungry
+        PixelSearch , x, y, 25, 144, 40, 146, 0x3A3A3A, 40, Fast ; logs when hungry
         If ErrorLevel = 0
         {
             Send !{f4}
