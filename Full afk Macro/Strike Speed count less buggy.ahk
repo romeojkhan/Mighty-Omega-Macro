@@ -24,15 +24,15 @@ loop,
 		Send {Click}
 		Loop, 3
 		{
-			Sleep 1100
+			Sleep 1150
 			Send {Click}
 		}
-		Sleep 1100
+		Sleep 1150
 		Send {Click, Right}
 		Sleep 1100
 	}
 	Send {Click}
-	Sleep 1100
+	Sleep 1150
 	Send 1
 	Sleep 1000
 	if A_Index = %logs%
