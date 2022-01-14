@@ -25,8 +25,8 @@ macro_on := !macro_on
 if (macro_on)
 {	
 	CoordMode , Pixel, Window
-	eat = 1
-	temp = 0
+	slot = 1
+	current = 0
 	PixelGetColor , color2, 250, 134,
 	Loop ,
 	{	   
@@ -89,222 +89,44 @@ if (macro_on)
 			Click , 409, 296
 			Sleep 16
 		} Until A_TickCount - StartTime2 > 6000
-		PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
+		PixelSearch , x, y, 70, 144, 95, 146, 0x3A3A3A, 50, Fast
 		If ErrorLevel = 0
-		{			
-			if eat = 1
-			{				
-				temp++
+		{
+			if current <= 5
+			{
 				Sleep 1000
 				Click , 410, 340
 				Sleep 100
-				Send 2
-				Sleep 50
+				Send %slot%
+				Sleep 200
 				Send {Click 10}
-				Sleep 5000
-				Send 2
+				Sleep 8000
+				Send %slot%
+				current++
 				1 := A_TickCount
 				Loop ,
 				{					
 					Click , 409, 296
 					Sleep 16
 				} Until A_TickCount - 1 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 2
-				}			
 			}
-			if eat = 2
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 3
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 3
-				2 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				}				
-				Until A_TickCount - 2 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 3
-				}			
-			}			
-			if eat = 3
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 4
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 4
-				3 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 3 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 4
-				}			
-			}			
-			if eat = 4
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 5
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 5
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 5
+			if slot = 0
+			{
+				if current >= 5
+				{
+					Send !{f4}
+					Exitapp
 				}
-			}			
-			if eat = 5
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 6
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 6
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 6
+			}
+			if current >= 5
+			{
+				slot++
+				current = 0
+				if slot >= 10
+				{
+					slot = 0
 				}
-			}			
-			if eat = 6
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 7
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 7
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 7
-				}			
-			}			
-				if eat = 6
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 8
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 8
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 7
-				}			
-			}			
-				if eat = 7
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 9
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 9
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 8
-				}			
-			}			
-			if eat = 8
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 0
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 0
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 9
-				}			
-			}			
-			if eat = 9
-			{				
-				Send !{f4}
-				Reload
-			}		
+			}
 		}		
 		if A_Index = %logs%
 		{			
@@ -334,8 +156,8 @@ macro_on := !macro_on
 if (macro_on)
 {	
 	CoordMode , Pixel, Window
-	eat = 1
-	temp = 0
+	slot = 1
+	current = 0
 	PixelGetColor , color2, 250, 134,
 	Loop ,
 	{		
@@ -398,222 +220,44 @@ if (macro_on)
 			Click , 409, 296
 			Sleep 16
 		} Until A_TickCount - StartTime2 > 6000
-		PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
+		PixelSearch , x, y, 70, 144, 95, 146, 0x3A3A3A, 50, Fast
 		If ErrorLevel = 0
-		{			
-			if eat = 1
-			{				
-				temp++
+		{
+			if current <= 5
+			{
 				Sleep 1000
 				Click , 410, 340
 				Sleep 100
-				Send 2
-				Sleep 50
+				Send %slot%
+				Sleep 200
 				Send {Click 10}
-				Sleep 5000
-				Send 2
+				Sleep 8000
+				Send %slot%
+				current++
 				1 := A_TickCount
 				Loop ,
 				{					
 					Click , 409, 296
 					Sleep 16
 				} Until A_TickCount - 1 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 2
-				}			
 			}
-			if eat = 2
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 3
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 3
-				2 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				}				
-				Until A_TickCount - 2 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 3
-				}			
-			}			
-			if eat = 3
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 4
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 4
-				3 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 3 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 4
-				}			
-			}			
-			if eat = 4
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 5
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 5
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 5
+			if slot = 0
+			{
+				if current >= 5
+				{
+					Send !{f4}
+					Exitapp
 				}
-			}			
-			if eat = 5
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 6
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 6
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 6
+			}
+			if current >= 5
+			{
+				slot++
+				current = 0
+				if slot >= 10
+				{
+					slot = 0
 				}
-			}			
-			if eat = 6
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 7
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 7
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 7
-				}			
-			}			
-				if eat = 6
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 8
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 8
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 7
-				}			
-			}			
-				if eat = 7
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 9
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 9
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 8
-				}			
-			}			
-			if eat = 8
-			{				
-				temp++
-				Sleep 1000
-				Click , 410, 340
-				Sleep 100
-				Send 0
-				Sleep 50
-				Send {Click 10}
-				Sleep 5000
-				Send 0
-				4 := A_TickCount
-				Loop ,
-				{					
-					Click , 409, 296
-					Sleep 16
-				} Until A_TickCount - 4 > 1000
-				if temp = 5
-				{					
-					temp = 0
-					eat = 9
-				}			
-			}			
-			if eat = 9
-			{				
-				Send !{f4}
-				Reload
-			}		
+			}
 		}		
 		if A_Index = %logs%
 		{			
