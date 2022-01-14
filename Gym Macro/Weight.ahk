@@ -76,7 +76,7 @@ if (macro_on)
 			StartTime := A_TickCount
 			Loop ,
 			{				
-				PixelSearch , x, y, 40, 133, 80, 135, 0x3A3A3A, 40, Fast
+				PixelSearch , x, y, 20, 133, 80, 135, 0x3A3A3A, 40, Fast
 				If ErrorLevel = 0
 				{					
 					Sleep 8000
@@ -147,7 +147,7 @@ if (macro_on)
 		StartTime := A_TickCount
 		Loop ,
 		{			
-			PixelSearch , x, y, 40, 133, 80, 135, 0x3A3A3A, 40, Fast
+			PixelSearch , x, y, 20, 133, 80, 135, 0x3A3A3A, 40, Fast
 			If ErrorLevel = 0
 			{				
 				Sleep 8000
