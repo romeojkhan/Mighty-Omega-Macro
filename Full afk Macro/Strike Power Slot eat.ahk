@@ -19,7 +19,7 @@ if (macro_on)
     CoordMode Pixel, Window
     CoordMode Mouse, Window
     current = 0
-    slot = 1
+    slot = 2
     Rythm = 0
     Loop,
     {
