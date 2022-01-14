@@ -34,7 +34,7 @@ loop,
 	Send {Click}
 	Sleep 1150
 	Send 1
-	Sleep 1000
+	Sleep 1400
 	if A_Index = %logs%
 	{
 		Send !{f4}
