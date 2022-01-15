@@ -81,7 +81,7 @@ if (macro_on)
 				{					
 					Sleep 8000
 				}				
-				ImageSearch, x , y , 250 , 220 , 560 , 440, *40 %A_ScriptDir%\bin\yellow.png
+				ImageSearch, x , y , 250 , 220 , 560 , 440, 40 %A_ScriptDir%\bin\yellow.png
 				if (errorlevel = 0)
 				{					
 					MouseClick, Left,  x+5, y+5
