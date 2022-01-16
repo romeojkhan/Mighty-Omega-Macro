@@ -49,6 +49,7 @@ if (macro_on)
 		Click , 410, 355 ; click the hand thing
 		Sleep 3000 ; wait for 3 sec countdown before start
 		Sleep 10000 ; example of sleep for 10 sec before start doing tread
+		StartTime := A_TickCount
 		Loop ,
 		{			
 			CoordMode , Pixel, Window
@@ -172,6 +173,7 @@ if (macro_on)
 		Click , 410, 355 ; click the hand thing
 		Sleep 3000 ; wait for 3 sec countdown before start
 		Sleep 10000 ; example of sleep for 10 sec before start doing tread
+		StartTime := A_TickCount
 		Loop ,
 		{			
 			CoordMode , Pixel, Window
