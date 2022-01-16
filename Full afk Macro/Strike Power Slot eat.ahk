@@ -41,7 +41,7 @@ if (macro_on)
         {
             Rythm = 0
             Sendinput, {w up}{s up}
-            Sleep 100
+            Sleep 1000
             Sendinput, {w down}{w up}{w down}{s down}
             Sleep 100
             StartTime := A_TickCount
@@ -57,6 +57,7 @@ if (macro_on)
                     Break
                 }
             } Until A_TickCount - StartTime > 17000
+	    Sendinput, {w up}{s up}
         }
         PixelSearch, x, y, 40, 132, 65, 134, 0x3A3A3A, 40, Fast  ; if too low stam
         if ErrorLevel = 0
@@ -75,7 +76,7 @@ if (macro_on)
                 Send %slot%
                 Sleep 200
                 Send {Click 10}
-                Sleep 6000
+                Sleep 5500
                 Send %slot%
 		Sleep 100
 		Send 1
