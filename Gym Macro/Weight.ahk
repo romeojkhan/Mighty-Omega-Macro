@@ -76,11 +76,13 @@ if (macro_on)
 			StartTime := A_TickCount
 			Loop ,
 			{				
-				PixelSearch , x, y, 20, 133, 80, 135, 0x3A3A3A, 40, Fast
+				PixelSearch , x, y, 20, 130, 80, 133, 0x3A3A3A, 20, Fast
 				If ErrorLevel = 0
-				{					
+				{				
+					toolTip, stamina ranout
+					SetTimer, removetooltip, -2000
 					Sleep 8000
-				}				
+				}					
 				ImageSearch, x , y , 250 , 220 , 560 , 440, *45 %A_ScriptDir%\bin\yellow.png
 				if (errorlevel = 0)
 				{					
@@ -147,9 +149,11 @@ if (macro_on)
 		StartTime := A_TickCount
 		Loop ,
 		{			
-			PixelSearch , x, y, 20, 133, 80, 135, 0x3A3A3A, 40, Fast
+			PixelSearch , x, y, 20, 130, 80, 133, 0x3A3A3A, 20, Fast
 			If ErrorLevel = 0
 			{				
+				toolTip, stamina ranout
+				SetTimer, removetooltip, -2000
 				Sleep 8000
 			}			
 			ImageSearch, x , y , 250 , 220 , 560 , 440, *45 %A_ScriptDir%\bin\yellow.png
