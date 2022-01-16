@@ -4,16 +4,6 @@ if ErrorLevel = 1
 {	
 	ExitApp
 }
-InputBox, lol, when you want to start? ;wait use milisec
-if ErrorLevel = 1
-{	
-	ExitApp
-}
-InputBox, lol1, do tread for? ; do tread for milisec
-if ErrorLevel = 1
-{	
-	ExitApp
-}
 Loop, 3
 {	
 	CenterWindow("ahk_exe RobloxPlayerBeta.exe")
@@ -44,22 +34,21 @@ if (macro_on)
 		CoordMode , Click, Window
 		toolTip, %A_Index%
 		SetTimer, removetooltip, -3000
-		Click , 520, 310
+		Click , 520, 310 ;select rs
 		Sleep 1000
-		Click , 340, 370
+		Click , 340, 370 ; lvl 5
 		Sleep 200
-		Click , 340, 340
+		Click , 340, 340 ; lvl 4
 		Sleep 200
-		Click , 340, 310
+		Click , 340, 310 ; lvl 3
 		Sleep 200
-		Click , 340, 280
+		Click , 340, 280 ; lvl 2
 		Sleep 200
-		Click , 340, 250
+		Click , 340, 250 ; lvl 1
 		Sleep 200
-		Click , 410, 355
-		Sleep 3000
-		Sleep %lol%
-		StartTime := A_TickCount
+		Click , 410, 355 ; click the hand thing
+		Sleep 3000 ; wait for 3 sec countdown before start
+		Sleep 10000 ; example of sleep for 10 sec before start doing tread
 		Loop ,
 		{			
 			CoordMode , Pixel, Window
@@ -84,20 +73,8 @@ if (macro_on)
 			{				
 				Sendinput d
 			}
-			if detectstam = True	
-			{
-				PixelSearch , x, y, 40, 133, 70, 135, 0x3A3A3A, *40, Fast
-				If ErrorLevel = 0
-				{				
-					StartTime1 := A_TickCount
-					Loop ,
-					{					
-						Click , 409, 296
-						Sleep 16
-					} Until A_TickCount - StartTime1 > 8000
-				}
-			}
-		} Until A_TickCount - StartTime > %lol1%
+
+		} Until A_TickCount - StartTime > 50000 ;example of loop image search for 50 sec
 		StartTime2 := A_TickCount
 		Loop ,
 		{			
@@ -173,29 +150,28 @@ if (macro_on)
 	CoordMode , Pixel, Window
 	slot = 1
 	current = 0
-  detectstam = False
+    detectstam = False
 	PixelGetColor , color2, 250, 134,
 	Loop ,
 	{		
 		CoordMode , Click, Window
 		toolTip, %A_Index%
 		SetTimer, removetooltip, -3000
-		Click , 290, 310
+		Click , 290, 310 ; select stamina
 		Sleep 1000
-		Click , 340, 370
+		Click , 340, 370 ; lvl 5
 		Sleep 200
-		Click , 340, 340
+		Click , 340, 340 ; lvl 4
 		Sleep 200
-		Click , 340, 310
+		Click , 340, 310 ; lvl 3
 		Sleep 200
-		Click , 340, 280
+		Click , 340, 280 ; lvl 2
 		Sleep 200
-		Click , 340, 250
+		Click , 340, 250 ; lvl 1
 		Sleep 200
-		Click , 410, 355
-		Sleep 3000
-		Sleep %lol%
-		StartTime := A_TickCount
+		Click , 410, 355 ; click the hand thing
+		Sleep 3000 ; wait for 3 sec countdown before start
+		Sleep 10000 ; example of sleep for 10 sec before start doing tread
 		Loop ,
 		{			
 			CoordMode , Pixel, Window
@@ -220,20 +196,8 @@ if (macro_on)
 			{				
 				Sendinput d
 			}
-			if detectstam = True	
-			{
-				PixelSearch , x, y, 40, 133, 70, 135, 0x3A3A3A, *40, Fast
-				If ErrorLevel = 0
-				{				
-					StartTime1 := A_TickCount
-					Loop ,
-					{					
-						Click , 409, 296
-						Sleep 16
-					} Until A_TickCount - StartTime1 > 8000
-				}
-			}
-		} Until A_TickCount - StartTime > %lol1%
+
+		} Until A_TickCount - StartTime > 50000 ;example of loop image search for 50 sec
 		StartTime2 := A_TickCount
 		Loop ,
 		{			
