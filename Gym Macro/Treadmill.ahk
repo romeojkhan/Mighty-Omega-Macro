@@ -27,7 +27,7 @@ if (macro_on)
 	CoordMode , Pixel, Window
 	slot = 1
 	current = 0
-	PixelGetColor , color2, 250, 134,
+	PixelGetColor , color2, 250, 130,
 	Loop ,
 	{	   
 		CoordMode , Click, Window
@@ -72,7 +72,7 @@ if (macro_on)
 			{				
 				Sendinput d
 			}			
-			PixelSearch , x, y, 40, 133, 70, 135, 0x3A3A3A, *40, Fast
+			PixelSearch , x, y, 40, 130, 70, 133, 0x3A3A3A, *40, Fast
 			If ErrorLevel = 0
 			{				
 				StartTime1 := A_TickCount
@@ -137,7 +137,7 @@ if (macro_on)
 		Loop,
 		{			
 			Sleep 100
-			PixelSearch , x, y, 249, 133, 250, 135, color2, , Fast
+			PixelSearch , x, y, 249, 129, 250, 130, color2, , Fast
 			If ErrorLevel = 0
 			{				
 				Break
@@ -158,7 +158,7 @@ if (macro_on)
 	CoordMode , Pixel, Window
 	slot = 1
 	current = 0
-	PixelGetColor , color2, 250, 134,
+	PixelGetColor , color2, 250, 130,
 	Loop ,
 	{		
 		CoordMode , Click, Window
@@ -203,7 +203,7 @@ if (macro_on)
 			{				
 				Sendinput d
 			}			
-			PixelSearch , x, y, 40, 133, 70, 135, 0x3A3A3A, 40, Fast
+			PixelSearch , x, y, 40, 130, 70, 133, 0x3A3A3A, 40, Fast
 			If ErrorLevel = 0
 			{				
 				StartTime1 := A_TickCount
@@ -268,7 +268,7 @@ if (macro_on)
 		Loop,
 		{			
 			Sleep 100
-			PixelSearch , x, y, 249, 133, 250, 135, color2, , Fast
+			PixelSearch , x, y, 249, 129, 250, 130, color2, , Fast
 			If ErrorLevel = 0
 			{				
 				Break
