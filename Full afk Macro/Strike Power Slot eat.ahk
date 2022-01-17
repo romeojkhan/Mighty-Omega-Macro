@@ -33,7 +33,7 @@ if (macro_on)
             {
                 Rythm++
                 Sleep 100
-                Send r
+                Send r ; for auto rythm you can add " ; " in the front of this line to close auto flow
             }
             Send {Click, 50}{Click, Right}
         } 
@@ -65,7 +65,7 @@ if (macro_on)
             Sendinput, {w up}{s up}
             Sleep 10000
         }
-        PixelSearch , x, y, 70, 144, 80, 146, 0x3A3A3A, 40, Fast
+        PixelSearch , x, y, 110, 144, 115, 146, 0x3A3A3A, 40, Fast
         If ErrorLevel = 0
         {
 		tooltip, eat
@@ -100,7 +100,7 @@ if (macro_on)
                 }
             }
         }
-        PixelSearch , x, y, 25, 144, 40, 146, 0x3A3A3A, 40, Fast ; logs when hungry
+        PixelSearch , x, y, 25, 144, 30, 146, 0x3A3A3A, 40, Fast ; logs when hungry
         If ErrorLevel = 0
         {
             Send !{f4}
