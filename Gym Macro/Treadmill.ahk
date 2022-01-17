@@ -72,7 +72,7 @@ if (macro_on)
 			{				
 				Sendinput d
 			}			
-			PixelSearch , x, y, 40, 130, 70, 133, 0x3A3A3A, *40, Fast
+			PixelSearch , x, y, 40, 130, 70, 133, 0x3A3A3A, 40, Fast
 			If ErrorLevel = 0
 			{				
 				StartTime1 := A_TickCount
@@ -89,7 +89,7 @@ if (macro_on)
 			Click , 409, 296
 			Sleep 16
 		} Until A_TickCount - StartTime2 > 6000
-		PixelSearch , x, y, 70, 144, 95, 146, 0x3A3A3A, *50, Fast
+		PixelSearch , x, y, 105, 144, 110, 146, 0x3A3A3A, 40, Fast
 		If ErrorLevel = 0
 		{
 			if current <= 5
@@ -220,7 +220,7 @@ if (macro_on)
 			Click , 409, 296
 			Sleep 16
 		} Until A_TickCount - StartTime2 > 6000
-		PixelSearch , x, y, 70, 144, 95, 146, 0x3A3A3A, 50, Fast
+		PixelSearch , x, y, 105, 144, 110, 146, 0x3A3A3A, 40, Fast
 		If ErrorLevel = 0
 		{
 			if current <= 5
